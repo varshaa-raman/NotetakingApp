@@ -1,0 +1,53 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/noteListFragment">
+
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.zohointerview.notetakingapp.ui.fragments.NoteListFragment"
+        android:label="fragment_note_list">
+        <action
+            android:id="@+id/action_showSelectedNote"
+            app:destination="@id/updateNoteFragment" />
+        <action
+            android:id="@+id/action_createNote"
+            app:destination="@id/createNoteFragment" />
+        <action
+            android:id="@+id/action_listSettings"
+            app:destination="@id/settingsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateNoteFragment"
+        android:name="com.zohointerview.notetakingapp.ui.fragments.UpdateNoteFragment"
+        android:label="fragment_update_note">
+        <action
+            android:id="@+id/action_updateSettings"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_backToList"
+            app:destination="@id/noteListFragment" />
+        <argument
+            android:name="selectedNote"
+            app:argType="com.zohointerview.notetakingapp.domain.DomainNote" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNoteFragment"
+        android:name="com.zohointerview.notetakingapp.ui.fragments.CreateNoteFragment"
+        android:label="fragment_create_note">
+        <action
+            android:id="@+id/action_createSettings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_showCreatedNote"
+        app:destination="@id/updateNoteFragment" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.zohointerview.notetakingapp.ui.fragments.SettingsFragment"
+        android:label="fragment_settings"/>
+
+</navigation>

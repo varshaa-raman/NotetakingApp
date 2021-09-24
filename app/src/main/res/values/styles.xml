@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ProgressBarStyle" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
+        <!--<item name="android:progressDrawable">@drawable/bg_progress_horizontal</item>-->
+        <item name="minHeight">36dp</item>
+        <item name="maxHeight">36dp</item>
+    </style>
+
+    <style name="Title">
+        <item name="fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Title.H1">
+        <item name="android:textSize">@dimen/dim_txt_large</item>
+        <item name="android:textStyle">normal</item>
+        <!--<item name="android:textColor">@color/txt_medium_emphasis</item>-->
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+
+    <style name="Title.Large">
+        <item name="android:textSize">@dimen/dim_txt_extra_large</item>
+    </style>
+
+    <style name="Title.H3">
+        <item name="android:textSize">@dimen/dim_txt_large</item>
+        <item name="fontFamily">sans-serif-condensed-light</item>
+    </style>
+
+
+    <style name="Title.H2">
+        <item name="android:textSize">@dimen/txt_medium</item>
+        <item name="fontFamily">sans-serif-condensed-light</item>
+    </style>
+
+    <style name="weather">
+        <item name="fontFamily">sans-serif-condensed-light</item>
+        <!--<item name="android:textColor">@color/txt_white</item>-->
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="weather.H1">
+        <item name="android:textSize">@dimen/dim_txt_temperature</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="weather.H2">
+        <item name="android:textSize">@dimen/dim_txt_extra_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="weather.H2.superscript">
+        <item name="android:textSize">@dimen/dim_txt_temperature_unit</item>
+    </style>
+
+    <style name="weather.body">
+        <item name="android:textSize">@dimen/dim_txt_large</item>
+    </style>
+
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="textInputStyle">@style/Widget.MyApp.TextInputLayout</item>
+    </style>
+
+    <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+    </style>
+</resources>

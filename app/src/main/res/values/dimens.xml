@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--view dmensions-->
+    <dimen name="dim_xxsmall">2dp</dimen>
+    <dimen name="dim_xsmall">4dp</dimen>
+    <dimen name="dim_small">8dp</dimen>
+    <dimen name="dim_medium">12dp</dimen>
+    <dimen name="dim_xlarge">32dp</dimen>
+    <dimen name="dim_txt_large">24sp</dimen>
+    <dimen name="height_maxi">150dp</dimen>
+    <dimen name="height_large">200dp</dimen>
+    <dimen name="dim_large">16dp</dimen>
+    <dimen name="txt_xmedium">18sp</dimen>
+    <dimen name="txt_medium">16sp</dimen>
+    <dimen name="crd_crnr_radius">4dp</dimen>
+    <dimen name="dim_zero">0dp</dimen>
+    <dimen name="dim_txt_extra_large">40sp</dimen>
+    <dimen name="dim_txt_temperature">52sp</dimen>
+    <dimen name="dim_txt_temperature_unit">32sp</dimen>
+</resources>

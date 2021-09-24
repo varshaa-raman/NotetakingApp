@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:layout_margin="@dimen/dim_small"
+        app:cardCornerRadius="@dimen/crd_crnr_radius"
+        app:cardElevation="@dimen/dim_large"
+        app:cardUseCompatPadding="true">
+        <!--android:background="@color/activity_bg"-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dim_medium"
+            android:layout_marginEnd="@dimen/dim_medium">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_nte_lst_title"
+                style="@style/Title.H2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_large"
+                android:text = "@{note.title}"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_nte_lst_content"
+                style="@style/Title.H2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_large"
+                android:text = "@{note.content}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_nte_lst_title"
+                app:layout_constraintBottom_toTopOf="@id/tv_nte_lst_edtd"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id sapien suscipit ligula porttitor rhoncus. Nulla interdum magna at vestibulum consectetur. Mauris faucibus sed neque eu luctus. Cras interdum aliquet suscipit. Pellentesque eu venenatis ipsum. Integer mattis cursus felis, vitae convallis enim vulputate quis. Etiam egestas eget lacus nec blandit. Vivamus lacinia dolor vel ipsum bibendum cursus sit amet non sem. Proin malesuada sem vitae arcu molestie hendrerit. Nam lobortis urna ut magna pretium, eu commodo erat iaculis." />
+            />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_nte_lst_edtd"
+                style="@style/Title.H2"
+                android:text = "@{`Edited: ` + NoteAppUtils.INSTANCE.getTimeString(note.updatedTime)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_nte_lst_content"
+                android:layout_marginBottom="@dimen/dim_small"
+                tools:text="Edited : 5m ago" />
+            />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <data>
+
+        <variable
+            name="note"
+            type="com.zohointerview.notetakingapp.domain.DomainNote" />
+        <import type="com.zohointerview.notetakingapp.core.utils.NoteAppUtils"/>
+
+    </data>
+</layout>
+

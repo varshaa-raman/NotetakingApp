@@ -1,0 +1,17 @@
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="@string/pref_key_sharing"
+        app:title="@string/pref_sharing_title"
+        app:defaultValue="true"
+         />
+
+    <SwitchPreferenceCompat
+        app:key="@string/key_srt_new_btm"
+        app:title="@string/srt_new_btm_title"/>
+
+
+
+</androidx.preference.PreferenceScreen>
+

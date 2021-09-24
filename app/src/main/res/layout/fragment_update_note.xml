@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.MainActivity">
+        <!-- AppBar layout for using Toolbar as AppBar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/abl_crt_nt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+
+                >
+
+                <!-- ToolBar widget -->
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_updt_nt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#0F9D58"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:titleTextColor="#ffff"
+                    app:title=""/>
+
+                <!-- Right most TextView -->
+                <TextView
+                    android:id="@+id/tv_updt_nt_main_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{notesViewModel.selectedNote.title}"
+                    android:textColor="#ffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/toolbar_updt_nt"
+                    app:layout_constraintStart_toStartOf="@id/toolbar_updt_nt"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Right most ImageView -->
+                <ImageView
+                    android:id="@+id/iv_updt_nt_save"
+                    android:clickable="true"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_updt_nt_main_title"
+                    app:srcCompat="@drawable/ic_menu_tick"
+                    android:layout_marginStart="@dimen/dim_xlarge"/>
+
+                <ImageView
+                    android:id="@+id/iv_updt_nt_mnu"
+                    android:clickable="true"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv_updt_nt_save"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_overflow"
+                    android:layout_marginStart="@dimen/dim_xlarge"/>
+
+
+                <ImageView
+                    android:id="@+id/iv_updt_settings"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="9dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_settings" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_marginTop="?attr/actionBarSize"
+            tools:context=".ui">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <FrameLayout
+                    android:id="@+id/fl_updt_nt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.4"
+                    android:animateLayoutChanges="true"
+                    android:background="@color/txt_white"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <ProgressBar
+                        android:id="@+id/pv_updt_nte"
+                        style="?android:attr/progressBarStyleLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        app:layout_constraintBottom_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent" />
+                </FrameLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/cl_updt_note"
+                    android:paddingStart="@dimen/dim_medium"
+                    android:paddingEnd="@dimen/dim_medium">
+
+                    <ImageView
+                        android:id="@+id/iv_updt_nte_attchment"
+                        android:layout_width="100dp"
+                        android:visibility="gone"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        app:imageUri="@{notesViewModel.selectedNote.resourceUri}"
+                        android:layout_marginTop="@dimen/dim_large"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/til_updt_nte_content"
+                        tools:src="@tools:sample/backgrounds/scenic" />
+
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_updt_nte_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_large"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_updt_nte_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/Title.H3"
+                            android:background="@null"
+                            android:textColorHint="@drawable/selector_hint"
+                            android:text="@{notesViewModel.selectedNote.title}"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/txt_hint"
+                        android:layout_marginTop="@dimen/dim_large"
+                        app:layout_constraintTop_toBottomOf="@id/til_updt_nte_title"
+                        android:layout_marginBottom="@dimen/dim_large"
+                        app:layout_constraintBottom_toTopOf="@id/til_updt_nte_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_updt_nte_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dim_large"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/til_updt_nte_title">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_updt_nte_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{notesViewModel.selectedNote.content}"
+                            style="@style/Title.H2"
+                            android:textColorHint="@drawable/selector_hint"
+                            android:background="@null"
+                            android:layout_marginTop="@dimen/dim_large"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--android:background="@color/activity_bg"-->
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="notesViewModel"
+            type="com.zohointerview.notetakingapp.ui.viewModels.UpdateNotesViewModel" />
+    </data>
+</layout>
+
+
+
+
